@@ -1,0 +1,344 @@
+:root {
+    --primary-color: #ff0000;
+    --secondary-color: #000000;
+    --background-color: #ffffff;
+    --warning-color: #ff0000;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Impact', sans-serif;
+    background-color: var(--background-color);
+    color: var(--secondary-color);
+    line-height: 1.6;
+}
+
+/* Warning Overlay */
+.warning-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.warning-content {
+    background-color: white;
+    padding: 2rem;
+    border: 2px solid var(--warning-color);
+    border-radius: 5px;
+}
+
+/* Header */
+header {
+    background-color: var(--secondary-color);
+    padding: 1rem;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+}
+
+nav a {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-size: 1.2rem;
+    transition: color 0.3s;
+}
+
+nav a:hover {
+    color: white;
+}
+
+/* Hero Section */
+.hero {
+    text-align: center;
+    padding: 4rem 2rem;
+    background-color: var(--secondary-color);
+    color: white;
+    border-bottom: 5px solid var(--primary-color);
+    letter-spacing: 1px;
+}
+
+.hero h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    font-family: 'Impact', Oswald, Arial, sans-serif;
+    text-transform: uppercase;
+}
+
+.subtitle {
+    font-size: 1.5rem;
+    color: var(--primary-color);
+    font-family: 'Impact', Oswald, Arial, sans-serif;
+}
+
+/* Blog Content */
+.blog-content {
+    max-width: 800px;
+    margin: 2rem auto;
+    background: #fff;
+    border: 3px solid var(--secondary-color);
+    padding: 2rem;
+    border-radius: 6px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.1);
+}
+
+.annotation-box {
+    background: #fff0f0;
+    border-left: 6px solid var(--primary-color);
+    padding: 1rem 2rem;
+    margin-top: 2rem;
+    font-size: 1.1rem;
+    color: #222;
+    border-radius: 4px;
+    position: relative;
+}
+.annotation-box h3 {
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+}
+
+/* Warning Box */
+.warning-box {
+    background: #fff7f7;
+    border: 3px dashed var(--warning-color);
+    color: var(--warning-color);
+    padding: 1.5rem;
+    margin: 2rem 0;
+    border-radius: 8px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+/* Example Content */
+.examples-content {
+    max-width: 900px;
+    margin: 2rem auto;
+    padding: 2rem;
+}
+.example-container {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+.example-item {
+    display: flex;
+    flex-direction: row;
+    gap: 2rem;
+    background: #fff;
+    border: 2px solid var(--secondary-color);
+    border-radius: 6px;
+    padding: 1.5rem;
+    align-items: flex-start;
+}
+.example-image .placeholder {
+    width: 200px;
+    height: 120px;
+    background: repeating-linear-gradient(135deg, #ccc 0 10px, #fff 10px 20px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #888;
+    font-size: 1.1rem;
+    filter: blur(2px) grayscale(0.9);
+    border: 2px solid #aaa;
+    border-radius: 4px;
+}
+.example-analysis {
+    flex: 1;
+}
+
+/* Redacted/Blurred Text */
+.redacted {
+    background: #000;
+    color: #000;
+    border-radius: 2px;
+    padding: 0 0.3em;
+    position: relative;
+}
+.redacted::after {
+    content: "[REDACTED]";
+    color: #fff;
+    position: absolute;
+    left: 0;
+    right: 0;
+    text-align: center;
+    font-size: 0.9em;
+    top: 0;
+    bottom: 0;
+    opacity: 0.7;
+}
+
+/* Accordion styles (expanded for interactivity) */
+.accordion {
+    width: 100%;
+    max-width: 800px;
+    margin: 2rem auto;
+}
+.accordion-item {
+    background-color: white;
+    margin: 1rem 0;
+    border: 2px solid var(--secondary-color);
+    border-radius: 5px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+}
+.accordion-header {
+    padding: 1rem;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: bold;
+    font-size: 1.2rem;
+    background: #f5f5f5;
+    border-bottom: 1px solid #ddd;
+    user-select: none;
+}
+.accordion-header:focus {
+    outline: 2px solid var(--primary-color);
+    outline-offset: 2px;
+}
+.accordion-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out, padding 0.3s;
+    padding: 0 1rem;
+    background: #fff;
+}
+.accordion-content.active {
+    max-height: 500px;
+    padding: 1rem;
+}
+
+/* Tooltip Styles */
+.tooltip {
+    position: relative;
+    cursor: pointer;
+    border-bottom: 1px dashed var(--primary-color);
+}
+.tooltip .tooltip-text {
+    visibility: hidden;
+    width: 220px;
+    background: #222;
+    color: #fff;
+    text-align: left;
+    border-radius: 6px;
+    padding: 0.7rem;
+    position: absolute;
+    z-index: 20;
+    bottom: 125%;
+    left: 50%;
+    margin-left: -110px;
+    opacity: 0;
+    transition: opacity 0.3s;
+    font-size: 1rem;
+    pointer-events: none;
+}
+.tooltip:focus .tooltip-text,
+.tooltip:hover .tooltip-text {
+    visibility: visible;
+    opacity: 1;
+}
+
+/* Modal/Overlay Accessibility */
+[role="dialog"], .warning-overlay {
+    outline: none;
+}
+
+/* Accessibility: Focus Styles */
+a:focus, button:focus {
+    outline: 2px solid var(--primary-color);
+    outline-offset: 2px;
+}
+
+/* Propaganda/Chunky Borders */
+section, .blog-content, .examples-content {
+    border-left: 8px solid var(--primary-color);
+    border-right: 8px solid var(--secondary-color);
+    margin-bottom: 2rem;
+    padding: 1.5rem 0.5rem;
+}
+
+/* Hide visually but keep for screen readers */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0,0,0,0);
+    border: 0;
+}
+
+.subtitle {
+    font-size: 1.5rem;
+    color: var(--primary-color);
+}
+
+/* Introduction */
+.introduction {
+    max-width: 800px;
+    margin: 4rem auto;
+    padding: 2rem;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 2rem;
+    background-color: var(--secondary-color);
+    color: white;
+}
+
+/* Accordion styles */
+.accordion {
+    width: 100%;
+    max-width: 800px;
+    margin: 2rem auto;
+}
+
+.accordion-item {
+    background-color: white;
+    margin: 1rem 0;
+    border: 2px solid var(--secondary-color);
+}
+
+.accordion-header {
+    padding: 1rem;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.accordion-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out;
+    padding: 0 1rem;
+}
+
+.accordion-content.active {
+    max-height: 500px;
+}
