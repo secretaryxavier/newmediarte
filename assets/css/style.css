@@ -12,10 +12,25 @@
 }
 
 body {
-    font-family: 'Impact', sans-serif;
+    font-family: 'Oswald', Arial, 'Segoe UI', sans-serif;
     background-color: var(--background-color);
     color: var(--secondary-color);
     line-height: 1.6;
+    margin-top: 48px; /* Make space for rolling banner */
+}
+
+h1, h2, h3, .hero h1, .blog-card-title, .rolling-banner, .side-ad-title, .tinfoil-ad-title {
+    font-family: 'Oswald', Arial, 'Segoe UI', sans-serif;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-shadow: none;
+}
+
+.subtitle, .blog-card-excerpt, .blog-content, .example-analysis, .annotation-box, .callout-box, .warning-box, .highlight-list, nav, ul, li, p, a, label, input, button {
+    font-family: 'Oswald', Arial, 'Segoe UI', sans-serif;
+    font-weight: 400;
+    letter-spacing: 0.01em;
+    text-shadow: none;
 }
 
 /* Warning Overlay */
@@ -82,12 +97,46 @@ nav a:hover {
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
     font-family: 'Impact', Oswald, Arial, sans-serif;
     text-transform: uppercase;
+    letter-spacing: 0.15em;
+    line-height: 1.18;
+}
+
+/* Add more spacing for all main headers */
+h1, h2, h3 {
+    font-family: 'Impact', Oswald, Arial, sans-serif;
+    letter-spacing: 0.12em;
+    /* No text-shadow for default black headings */
+}
+
+.hero h1,
+.blog-card-title,
+.rolling-banner,
+.side-ad-title,
+.tinfoil-ad-title {
+    font-family: 'Impact', Oswald, Arial, sans-serif;
+}
+
+.blog-content, .example-analysis, .annotation-box, .callout-box, .warning-box, .highlight-list, .subtitle, .blog-card-excerpt {
+    font-family: 'Oswald', Arial, 'Segoe UI', sans-serif;
+    font-weight: 400;
+    letter-spacing: 0.01em;
 }
 
 .subtitle {
     font-size: 1.5rem;
     color: var(--primary-color);
-    font-family: 'Impact', Oswald, Arial, sans-serif;
+    font-family: 'Oswald', Arial, 'Segoe UI', sans-serif;
+    font-weight: 400;
+    letter-spacing: 0.08em;
+}
+
+/* Only apply outline to colored prominent headings */
+.hero h1,
+.blog-card-title,
+.rolling-banner,
+.side-ad-title,
+.tinfoil-ad-title {
+    text-shadow: 2px 2px 0 #000, -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000, 0 2px 0 #000, 2px 0 0 #000, 1px 1px 6px #fff70099;
 }
 
 /* Blog Content */
@@ -116,8 +165,8 @@ nav a:hover {
     margin-bottom: 0.5rem;
 }
 
-/* Warning Box */
-.warning-box {
+/* Warning/Callout Box (generalized for blog posts) */
+.callout-box.warning, .warning-box {
     background: #fff7f7;
     border: 3px dashed var(--warning-color);
     color: var(--warning-color);
@@ -127,6 +176,21 @@ nav a:hover {
     text-align: center;
     font-weight: bold;
     font-size: 1.2rem;
+}
+
+/* Highlighted List for Blog Posts */
+.highlight-list {
+    background: #f7faff;
+    border-left: 5px solid var(--primary-color);
+    padding: 1rem 2rem;
+    margin: 1.5rem 0;
+    border-radius: 4px;
+    list-style: disc inside;
+    font-size: 1.1rem;
+}
+.highlight-list li {
+    margin-bottom: 0.7em;
+    color: #222;
 }
 
 /* Example Content */
@@ -165,6 +229,7 @@ nav a:hover {
 }
 .example-analysis {
     flex: 1;
+    font-family: 'Oswald', Arial, 'Segoe UI', sans-serif;
 }
 
 /* Redacted/Blurred Text */
@@ -186,6 +251,249 @@ nav a:hover {
     top: 0;
     bottom: 0;
     opacity: 0.7;
+}
+
+/* Rolling Banner / Marquee Styles */
+.rolling-banner {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    z-index: 10001;
+    background: linear-gradient(90deg, #ff00c3 0%, #fff700 100%);
+    color: #222;
+    font-family: 'Oswald', Arial, 'Segoe UI', sans-serif;
+    font-size: 1.4rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    box-shadow: 0 4px 18px #ff00c355;
+    border-bottom: 4px solid #ff0000;
+    padding: 0.4rem 0;
+    text-transform: uppercase;
+    text-align: center;
+    pointer-events: none;
+    height: 44px;
+    line-height: 44px;
+    text-shadow: none;
+}
+.rolling-banner marquee, .rolling-marquee {
+    color: #ff00c3;
+    background: transparent;
+    font-size: 1.4rem;
+    font-family: 'Impact', Oswald, Arial, sans-serif;
+    text-shadow: 1px 1px 0 #fff700, 2px 2px 4px #ff00c3;
+    pointer-events: all;
+}
+
+/* Side Ad Cards (janky style) */
+.side-ad-card {
+    position: fixed;
+    top: 80px;
+    width: 220px;
+    min-height: 120px;
+    background: repeating-conic-gradient(
+        from 0deg,
+        #fff700 0deg 30deg,
+        #000 30deg 60deg,
+        #fff700 60deg 90deg,
+        #000 90deg 120deg,
+        #fff700 120deg 150deg,
+        #000 150deg 180deg,
+        #fff700 180deg 210deg,
+        #000 210deg 240deg,
+        #fff700 240deg 270deg,
+        #000 270deg 300deg,
+        #fff700 300deg 330deg,
+        #000 330deg 360deg
+    );
+    border: 4px dashed #ff00c3;
+    border-radius: 16px;
+    box-shadow: 0 8px 32px 0 #ff00c344;
+    font-family: 'Impact', Oswald, Arial, sans-serif;
+    color: #222;
+    z-index: 10000;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 1.1rem 0.7rem 1.1rem 0.7rem;
+    text-align: center;
+    animation: janky-ad-bounce 1.2s cubic-bezier(0.5, 1.5, 0.5, 1);
+    pointer-events: none;
+    overflow: hidden;
+}
+.side-ad-card::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 200%;
+    height: 200%;
+    background: repeating-conic-gradient(
+        from 0deg,
+        #fff700 0deg 30deg,
+        #000 30deg 60deg,
+        #fff700 60deg 90deg,
+        #000 90deg 120deg,
+        #fff700 120deg 150deg,
+        #000 150deg 180deg,
+        #fff700 180deg 210deg,
+        #000 210deg 240deg,
+        #fff700 240deg 270deg,
+        #000 270deg 300deg,
+        #fff700 300deg 330deg,
+        #000 330deg 360deg
+    );
+    border-radius: 50%;
+    transform: translate(-50%, -50%) rotate(0deg);
+    z-index: 0;
+    animation: spiral-spin 4s linear infinite;
+    opacity: 0.5;
+    pointer-events: none;
+}
+@keyframes spiral-spin {
+    0% { transform: translate(-50%, -50%) rotate(0deg); }
+    100% { transform: translate(-50%, -50%) rotate(360deg); }
+}
+.side-ad-title, .side-ad-body {
+    position: relative;
+    z-index: 1;
+}
+.left-ad {
+    left: 0.7rem;
+}
+.right-ad {
+    right: 0.7rem;
+}
+.side-ad-title {
+    font-size: 1.18rem;
+    font-weight: bold;
+    color: #ff00c3;
+    margin-bottom: 0.3rem;
+    letter-spacing: 0.09em;
+    text-shadow: 1px 1px 0 #fff700, 2px 2px 4px #ff00c3;
+}
+.side-ad-body {
+    font-size: 1.05rem;
+    color: #222;
+    font-weight: bold;
+    text-shadow: 0 1px 0 #fff, 0 0 6px #fff70044;
+}
+@keyframes janky-ad-bounce {
+    0% { transform: scale(0.6) translateY(-40px); opacity: 0; }
+    60% { transform: scale(1.08) translateY(10px); opacity: 1; }
+    100% { transform: scale(1) translateY(0); opacity: 1; }
+}
+
+/* Tinfoil Hat Pop-up Ad Styles */
+.tinfoil-ad-popup {
+    position: fixed;
+    bottom: 2.5rem;
+    right: 2.5rem;
+    z-index: 9999;
+    opacity: 0;
+    pointer-events: none;
+    transform: scale(0.7) translateY(60px);
+    transition: opacity 0.4s, transform 0.5s cubic-bezier(0.5, 1.5, 0.5, 1);
+    animation: tinfoil-bounce-in 0.8s cubic-bezier(0.5, 1.5, 0.5, 1) 0.1s 1;
+}
+.tinfoil-ad-popup.show {
+    opacity: 1;
+    pointer-events: auto;
+    transform: scale(1) translateY(0);
+}
+@keyframes tinfoil-bounce-in {
+    0% { opacity: 0; transform: scale(0.7) translateY(60px); }
+    60% { opacity: 1; transform: scale(1.1) translateY(-8px); }
+    80% { transform: scale(0.95) translateY(2px); }
+    100% { opacity: 1; transform: scale(1) translateY(0); }
+}
+.tinfoil-ad-inner {
+    background: linear-gradient(135deg, #fff700 0%, #ff00c3 100%);
+    border: 4px double #222;
+    border-radius: 18px;
+    box-shadow: 0 8px 32px 0 rgba(0,0,0,0.23);
+    padding: 2.2rem 2.2rem 1.5rem 2.2rem;
+    min-width: 320px;
+    max-width: 350px;
+    text-align: center;
+    position: relative;
+    font-family: 'Impact', Oswald, Arial, sans-serif;
+    color: #222;
+    overflow: hidden;
+}
+.tinfoil-ad-title {
+    font-size: 2.1rem;
+    font-weight: bold;
+    letter-spacing: 0.14em;
+    color: #ff00c3;
+    text-shadow: 1px 1px 0 #fff700, 2px 2px 4px #ff00c3;
+    margin-bottom: 0.5rem;
+    animation: tinfoil-pop 0.8s cubic-bezier(0.5, 1.5, 0.5, 1);
+}
+@keyframes tinfoil-pop {
+    0% { transform: scale(0.7); }
+    70% { transform: scale(1.18); }
+    100% { transform: scale(1); }
+}
+.tinfoil-ad-body {
+    font-size: 1.15rem;
+    font-weight: bold;
+    color: #222;
+    margin-bottom: 1.1rem;
+    text-shadow: 0 1px 0 #fff, 0 0 6px #fff70044;
+}
+.tinfoil-ad-cta {
+    display: inline-block;
+    background: #ff00c3;
+    color: #fff700;
+    font-weight: bold;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    border-radius: 8px;
+    padding: 0.7em 1.7em;
+    margin-top: 0.7rem;
+    box-shadow: 0 2px 8px #ff00c344;
+    border: 2px solid #fff700;
+    text-decoration: none;
+    letter-spacing: 0.09em;
+    transition: background 0.2s, color 0.2s, transform 0.18s;
+    animation: tinfoil-wiggle 2.2s infinite linear;
+}
+.tinfoil-ad-cta:hover {
+    background: #fff700;
+    color: #ff00c3;
+    border-color: #ff00c3;
+    transform: scale(1.08) rotate(-2deg);
+}
+@keyframes tinfoil-wiggle {
+    0%, 100% { transform: rotate(-2deg); }
+    25% { transform: rotate(3deg) scale(1.04); }
+    50% { transform: rotate(-3deg) scale(1.01); }
+    75% { transform: rotate(2deg) scale(1.07); }
+}
+.tinfoil-ad-close {
+    position: absolute;
+    top: 8px;
+    right: 14px;
+    background: #ff00c3;
+    color: #fff700;
+    border: none;
+    border-radius: 50%;
+    font-size: 2rem;
+    font-weight: bold;
+    width: 2.2rem;
+    height: 2.2rem;
+    line-height: 2rem;
+    cursor: pointer;
+    box-shadow: 0 1px 6px #ff00c344;
+    z-index: 10;
+    transition: background 0.2s, color 0.2s, transform 0.18s;
+}
+.tinfoil-ad-close:hover {
+    background: #fff700;
+    color: #ff00c3;
+    transform: scale(1.2) rotate(12deg);
 }
 
 /* Accordion styles (expanded for interactivity) */

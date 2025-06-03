@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog | Mechanisms of Hate Speech</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <style>
+        .blog-card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+            margin: 2rem auto;
+            max-width: 1100px;
+            padding: 0 1rem;
+        }
+        .blog-card {
+            background: #fff;
+            border: 2px solid var(--secondary-color);
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            transition: transform 0.2s, box-shadow 0.2s;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            min-height: 280px;
+        }
+        .blog-card:hover {
+            transform: translateY(-6px) scale(1.02);
+            box-shadow: 0 6px 24px rgba(0,0,0,0.15);
+        }
+        .blog-card-content {
+            flex: 1;
+            padding: 2rem 1.5rem 1.5rem 1.5rem;
+        }
+        .blog-card-title {
+            color: var(--primary-color);
+            font-family: 'Impact', Oswald, Arial, sans-serif;
+            font-size: 2rem;
+            margin-bottom: 0.7rem;
+        }
+        .blog-card-excerpt {
+            color: #333;
+            font-size: 1.1rem;
+            margin-bottom: 1.2rem;
+        }
+        .blog-card-link {
+            display: inline-block;
+            margin-top: auto;
+            color: var(--secondary-color);
+            background: var(--primary-color);
+            padding: 0.6em 1.3em;
+            border-radius: 5px;
+            font-weight: bold;
+            text-decoration: none;
+            transition: background 0.2s, color 0.2s;
+        }
+        .blog-card-link:hover {
+            background: var(--secondary-color);
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="../about.html">About</a></li>
+                <li><a href="../mechanisms.html">Mechanisms</a></li>
+                <li><a href="../examples.html">Examples</a></li>
+                <li><a href="./">Blog</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section class="hero">
+            <h1>Blog</h1>
+            <p class="subtitle">Explore analyses, examples, and commentary on mechanisms of hate speech</p>
+        </section>
+        <section class="blog-card-grid">
+            <!-- Blog Card 1 -->
+            <div class="blog-card">
+                <div class="blog-card-content">
+                    <div class="blog-card-title">Satirical Example: Protect Our Values!</div>
+                    <div class="blog-card-excerpt">A satirical breakdown of rhetorical exaggeration, moral panic, and divisive language in hate speech narratives.</div>
+                    <a class="blog-card-link" href="post2.html">Read More</a>
+                </div>
+            </div>
+            <!-- Blog Card 2 -->
+            <div class="blog-card">
+                <div class="blog-card-content">
+                    <div class="blog-card-title">Case Study: Online Hate Mechanisms</div>
+                    <div class="blog-card-excerpt">Real-world analysis of how hate speech spreads and is amplified across digital platforms, with annotations.</div>
+                    <a class="blog-card-link" href="post1.html">Read More</a>
+                </div>
+            </div>
+            <!-- Blog Card 3 -->
+            <div class="blog-card">
+                <div class="blog-card-content">
+                    <div class="blog-card-title">Hate Platforms: The Hidden Networks</div>
+                    <div class="blog-card-excerpt">How disguised communities facilitate hate, misinformation, and recruitment for harmful ideologies.</div>
+                    <a class="blog-card-link" href="post3.html">Read More</a>
+                </div>
+            </div>
+            <!-- Blog Card 4 -->
+            <div class="blog-card">
+                <div class="blog-card-content">
+                    <div class="blog-card-title">Algorithmic Patterns: How Social Media Shapes Hate</div>
+                    <div class="blog-card-excerpt">How "rage bait" and algorithmic feedback loops normalize hate and influence generations.</div>
+                    <a class="blog-card-link" href="post4.html">Read More</a>
+                </div>
+            </div>
+            <!-- Blog Card 5 -->
+            <div class="blog-card">
+                <div class="blog-card-content">
+                    <div class="blog-card-title">Specified Hate Groups: Formation, Causes, and Impact</div>
+                    <div class="blog-card-excerpt">How hate groups form, why they exist, and the mechanisms they use to project hate (dog whistles, projection, echo chambers).</div>
+                    <a class="blog-card-link" href="post5.html">Read More</a>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2025 Mechanisms of Hate Speech Project</p>
+    </footer>
+</body>
+</html>
