@@ -32,7 +32,10 @@ document.addEventListener('DOMContentLoaded', function () {
             ad.querySelector('.tinfoil-ad-cta').style.display = 'none';
         };
     }
-    showTinfoilAd();
+    // Only show pop-ups if not on mobile (screen width > 600px)
+    if (window.innerWidth > 600) {
+        showTinfoilAd();
+    }
 
     // --- Rolling Banner / Marquee ---
     function showRollingBanner() {
@@ -86,7 +89,10 @@ document.addEventListener('DOMContentLoaded', function () {
         document.body.appendChild(leftAd);
         document.body.appendChild(rightAd);
     }
-    showSideAds();
+    // Only show side ads if not on mobile (screen width > 600px)
+    if (window.innerWidth > 600) {
+        showSideAds();
+    }
 
     // Modal/Warning Overlay Dismissal
     window.dismissWarning = function() {
