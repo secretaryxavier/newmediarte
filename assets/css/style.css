@@ -33,7 +33,7 @@ h1, h2, h3, .hero h1, .blog-card-title, .rolling-banner, .side-ad-title, .tinfoi
     text-shadow: none;
 }
 
-/* Warning Overlay */
+
 .warning-overlay {
     position: fixed;
     top: 0;

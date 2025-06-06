@@ -1,7 +1,5 @@
-// Mechanisms of Hate Speech - Interactivity JS
 
 document.addEventListener('DOMContentLoaded', function () {
-    // --- Tinfoil Hat Pop-up Ad ---
     function showTinfoilAd() {
         const adMessages = [
             {title: 'THE TRUTH!', body: 'Click here to unlock the secrets THEY don\'t want you to know!'},
@@ -32,12 +30,10 @@ document.addEventListener('DOMContentLoaded', function () {
             ad.querySelector('.tinfoil-ad-cta').style.display = 'none';
         };
     }
-    // Only show pop-ups if not on mobile (screen width > 600px)
     if (window.innerWidth > 600) {
         showTinfoilAd();
     }
 
-    // --- Rolling Banner / Marquee ---
     function showRollingBanner() {
         const bannerMessages = [
             "They're out to get you!",
@@ -62,7 +58,6 @@ document.addEventListener('DOMContentLoaded', function () {
     }
     showRollingBanner();
 
-    // --- Janky Side Ad Cards ---
     function showSideAds() {
         const adMessages = [
             {title: 'Buy Our Pineal Gland Opener!', body: 'Unlock your mind for just $99.99!'},
@@ -72,13 +67,10 @@ document.addEventListener('DOMContentLoaded', function () {
             {title: 'The Truth Supplement', body: 'Stronger than ever. Order today!'},
             {title: 'They Are Watching', body: 'Protect your privacy with our tinfoil hats!'}
         ];
-        // Left ad
         const leftAd = document.createElement('div');
         leftAd.className = 'side-ad-card left-ad';
-        // Right ad
         const rightAd = document.createElement('div');
         rightAd.className = 'side-ad-card right-ad';
-        // Pick random ads
         const leftMsg = adMessages[Math.floor(Math.random() * adMessages.length)];
         let rightMsg;
         do {
@@ -89,18 +81,15 @@ document.addEventListener('DOMContentLoaded', function () {
         document.body.appendChild(leftAd);
         document.body.appendChild(rightAd);
     }
-    // Only show side ads if not on mobile (screen width > 600px)
     if (window.innerWidth > 600) {
         showSideAds();
     }
 
-    // Modal/Warning Overlay Dismissal
     window.dismissWarning = function() {
         const overlay = document.querySelector('.warning-overlay');
         if (overlay) overlay.style.display = 'none';
         document.body.focus();
     };
-    // Trap focus in modal for accessibility
     const warningOverlay = document.querySelector('.warning-overlay');
     if (warningOverlay) {
         warningOverlay.setAttribute('role', 'dialog');
@@ -117,19 +106,16 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 
-    // Accordion for mechanisms.html
     const accordionHeaders = document.querySelectorAll('.accordion-header');
     accordionHeaders.forEach(header => {
         header.addEventListener('click', function() {
             const content = header.nextElementSibling;
             const expanded = content.classList.contains('active');
-            // Collapse all
             document.querySelectorAll('.accordion-content').forEach(c => c.classList.remove('active'));
             if (!expanded) {
                 content.classList.add('active');
             }
         });
-        // Keyboard accessibility
         header.setAttribute('tabindex', '0');
         header.addEventListener('keydown', function(e) {
             if (e.key === 'Enter' || e.key === ' ') {
@@ -138,7 +124,6 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 
-    // Tooltip activation (for .tooltip elements)
     const tooltips = document.querySelectorAll('.tooltip');
     tooltips.forEach(tip => {
         tip.addEventListener('focus', function() {
